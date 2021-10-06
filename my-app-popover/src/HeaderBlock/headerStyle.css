@@ -10,12 +10,17 @@
 h1 {
     margin-left: 10px;
 }
-.notification-container {
+.header__notification-container {
     display: flex;
     align-items: center;
     margin-right: 10px;
 }
-span {
+
+.header__notification-button {
+
+}
+
+.header__notification-container-counter {
     display: flex;
     align-items: center;
     justify-content: center;
