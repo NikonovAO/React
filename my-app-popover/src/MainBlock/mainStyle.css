@@ -38,9 +38,9 @@
     border-radius: 10px;
 }
 
-.button__finished-all-event,
-.button__delete-all-event,
-.button_toggle-popup {
+.button-block__finished-all-event,
+.button-block__delete-all-event,
+.button-block__toggle-popup {
     width: 350px;
     cursor: pointer;
 }

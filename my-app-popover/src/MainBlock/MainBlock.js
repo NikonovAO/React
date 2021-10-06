@@ -16,10 +16,10 @@ export default function MainBlock() {
                 <input type="text" className="form-control-event__name-event" name="nameEvent" placeholder="Введите название события..."/>
                 <button type="submit" className="form-control-event__add-event">Отправить</button>
             </form>
-            <div className="main__button-block button"> 
-            <button type="button" className="button__finished-all-event">Пометить все события прочитанными</button>
-            <button type="button" className="button__delete-all-event">Удалить все события</button>
-            <button type="button" className="button_toggle-popup">Скрыть / показать попап нотификаций (toggle btn) </button>
+            <div className="main__button-block button-block"> 
+            <button type="button" className="button-block__finished-all-event">Пометить все события прочитанными</button>
+            <button type="button" className="button-block__delete-all-event">Удалить все события</button>
+            <button type="button" className="button-block__toggle-popup">Скрыть / показать попап нотификаций (toggle btn) </button>
             </div>
             
         </main>
