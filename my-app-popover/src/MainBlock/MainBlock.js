@@ -8,22 +8,20 @@ export default function MainBlock() {
 
     }
 
-    const myContant = 'abc';
-
     return (
         <main className="main">
             <h2 className="main__header">Event management form</h2>
 
-            <form name="formControlEvent" onSubmit={handleNewEventSubmit}>
-                <div className="main__form">
-                    <input type="text" name="nameEvent" placeholder="Введите название события..."/>
-                    <button type="submit" name="addEvent">Отправить</button>
-                </div>
+            <form name="formControlEvent" className="main__form form-control-event" onSubmit={handleNewEventSubmit}>
+                <input type="text" className="form-control-event__name-event" name="nameEvent" placeholder="Введите название события..."/>
+                <button type="submit" className="form-control-event__add-event">Отправить</button>
             </form>
-
-            <button type="button" name="finishedAllEvent">Пометить все события прочитанными</button>
-            <button type="button" name="deleteAllEvent">Удалить все события</button>
-            <button type="button" name="togglePopup">Скрыть / показать попап нотификаций (toggle btn) </button>
+            <div className="main__button-block button"> 
+            <button type="button" className="button__finished-all-event">Пометить все события прочитанными</button>
+            <button type="button" className="button__delete-all-event">Удалить все события</button>
+            <button type="button" className="button_toggle-popup">Скрыть / показать попап нотификаций (toggle btn) </button>
+            </div>
+            
         </main>
     )
 }

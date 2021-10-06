@@ -9,8 +9,22 @@
     margin-left: 10px;;
 }
 
-[name='formControlEvent'] {
-    max-width: 450px;
+.form-control-event {
+    width: 450px;
+    margin: 10px;
+    padding:10px;
+    border: 2px dotted black;
+    border-radius: 10px;
+}
+
+.form-control-event__name-event {
+    width: 350px;
+    box-sizing: border-box;
+    margin-right: 7px;
+}
+
+.main__button-block {
+    width: 350px;
     margin: 10px;
     padding:10px;
     display: flex;
@@ -20,14 +34,8 @@
     border-radius: 10px;
 }
 
-[name='nameEvent'] {
-    box-sizing: border-box;
-    margin-right: 7px;
-}
-
-[name='nameEvent'],
-[name='finishedAllEvent'],
-[name='deleteAllEvent'],
-[name='togglePopup'] {
+.button__finished-all-event,
+.button__delete-all-vent,
+.button_toggle-popup {
     width: 350px;
 }
