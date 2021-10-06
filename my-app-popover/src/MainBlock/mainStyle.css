@@ -23,6 +23,10 @@
     margin-right: 7px;
 }
 
+.form-control-event__add-event {
+    cursor: pointer;
+}
+
 .main__button-block {
     width: 350px;
     margin: 10px;
@@ -35,7 +39,8 @@
 }
 
 .button__finished-all-event,
-.button__delete-all-vent,
+.button__delete-all-event,
 .button_toggle-popup {
     width: 350px;
+    cursor: pointer;
 }
