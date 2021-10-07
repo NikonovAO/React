@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './mainStyle.css'
+import './Style.css'
 
 // TODO Поставить eslint в проект
 export default function MainBlock () {

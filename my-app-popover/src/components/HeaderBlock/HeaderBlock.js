@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import Bell from './Bell.svg'
+import Bell from '../../assets/Bell.svg'
 
-import './headerStyle.css'
+import './Style.css'
 
 export default function HeaderBlock () {
   const [count, setCount] = useState(0)
