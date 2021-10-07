@@ -25,7 +25,7 @@ export default function HeaderBlock () {
     <header className="header">
       <h1 className="header__title">Test task: Notification icon</h1>
       <div className="header__notification-container">
-        <button onClick={() => { }} className="header__notification-button">
+        <button type="button" onClick={() => { }} className="header__notification-button">
           <img src={Bell} className="header__notification-container-logo" alt="logo-Bell" />
           <span className="header__notification-container-counter"> {count} </span>
 
