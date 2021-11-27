@@ -1,11 +1,12 @@
 .header {
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
     background-color: blanchedalmond;
+    position: relative;
 }
 h1 {
     margin-left: 10px;
@@ -22,6 +23,17 @@ h1 {
     background: none;
     border: none;
     cursor: pointer;
+    position: relative;
+}
+
+.red-lamp {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    top: 2px;
+    left: 19px;
 }
 
 .header__notification-container-counter {
@@ -32,5 +44,34 @@ h1 {
     width: 32px;
     height: 32px;
     border: 2px solid gray;
+    border-radius: 7px;
     margin-left: 5px;
+}
+
+.message-box {
+    width: 220px;
+    height: 120px;
+    box-sizing: border-box;
+    background: lightgrey;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.message-box::before {
+    content: '';
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 42px solid lightgrey;
+    position: absolute;
+    right: 13px;
+    top: -42px;
+}
+
+.message-box__list {
+    list-style-type: none;
+    padding: 0;
 }
