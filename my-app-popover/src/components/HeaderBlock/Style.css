@@ -48,7 +48,7 @@ h1 {
     margin-left: 5px;
 }
 
-.message-box {
+.header__notification-message-box {
     width: 220px;
     height: 120px;
     box-sizing: border-box;
@@ -61,7 +61,7 @@ h1 {
     font-size: 12px;
     font-weight: 600;
 }
-.message-box::before {
+.header__notification-message-box::before {
     content: '';
 	border-left: 12px solid transparent;
 	border-right: 12px solid transparent;
@@ -71,7 +71,7 @@ h1 {
     top: -42px;
 }
 
-.message-box__list {
+.header__notification-message-box__list {
     list-style-type: none;
     padding: 0;
 }

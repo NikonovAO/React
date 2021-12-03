@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Bell from '../../assets/Bell.svg'
 
 import './Style.css'
-
+// TODO: 7 - лучше использовать функциональные компоненты, но если используешь классовые, то наследуйся от PureComponent
 export default class HeaderBlock extends Component {
   constructor (props) {
     super(props)
@@ -19,14 +19,14 @@ export default class HeaderBlock extends Component {
   componentDidMount () {
     this.timerID = setInterval(
       () => this.tick(),
-      50000
+      5000
     )
   }
 
   componentWillUnmount () {
     clearInterval(this.timerID)
   }
-
+  // TODO: 32,33, ненадо таскать хвост. this.state везже, вытащи переменные заранее через спреад оператор const { value} =this.state
   tick () {
     this.setState({
       counterMessages: this.state.counterMessages + 1,
@@ -34,20 +34,20 @@ export default class HeaderBlock extends Component {
     })
     console.log(this.state.notificationMessages)
   }
-
+  // TODO: 33, формирование текста можно вынести в отдельную функцию
   resetEvents () {
     this.setState({
       notificationMessages: '',
       counterMessages: 0
     })
   }
-
+// TODO: 40, сообщения это массив строк, когда зануляешь его ты ты должен передавать не пустую строку а пустой массив
   displayMessagesBox () {
     this.setState({
       visibilityMessagesBox: !this.state.visibilityMessagesBox
     })
   }
-
+// TODO: 53 - используй спреад оператор
   render () {
     let displayMessages = ''
     if (this.state.notificationMessages.length > 0) {
@@ -55,7 +55,7 @@ export default class HeaderBlock extends Component {
         <li key={index}>{item}</li>
       ))
     }
-
+// TODO: 54, это просто адский ад! Разбивай эту строку на несколько переменных - операций, чтобы таких длинных строк преобразований не было
     let elemMessageBox = ''
     if (this.state.visibilityMessagesBox) {
       elemMessageBox =
@@ -65,7 +65,7 @@ export default class HeaderBlock extends Component {
         </ul>
       </div>
     }
-
+// TODO: 55, в качестве ключа индекс нельзя использовать, используй уникальный идентификатор, либо составной, индекс + текст или синтетический guid
     let redLamp = ''
     if (this.state.counterMessages > 0) {
       redLamp = <div className = "red-lamp" />
@@ -86,3 +86,17 @@ export default class HeaderBlock extends Component {
     )
   }
 }
+
+// TODO: 59-67 это делается не так, создается константа MyComponent которой ты присваиваешь верстку, потом в самой верстке ты делаешь так,
+// TODO: { isMessageBoxVisible && <MyComponent /> } 69-72, аналогично
+
+// TODO: 80тстрока, если ты вешаешь обработку onClick на что-то, то это должна быть либо кнопка, либо ссылка, если это переход на другую страницу те. навигация, то это ссылка, если действие, то это кнопка,
+
+// TODO: const MyComponent = (props) => {
+// TODO:   const myLocalValueHi = "Привет";
+// TODO:   return (
+// TODO:   <div>
+// TODO:     {myLocalValueHi}  {props.myValue}
+// TODO:   </div>
+// TODO: );
+// TODO: }
