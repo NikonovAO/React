@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import Bell from '../../assets/Bell.svg'
 import RedLamp from '../shared/RedLamp/RedLamp'
 
 import './Style.css'
 
+const MAX_MESSAGES = 5
+
+const Messages = ({ items, hello }) => {
+  return items.map((item, index) => (
+      <li key={'id = ' + index}>
+        <div>{hello}</div>
+        <div>{item.date}: {item.text}</div>
+      </li>
+  ))
+}
+Messages.propTypes = {
+  hello: PropTypes.string,
+  items: PropTypes.arrayOf({
+    text: PropTypes.string,
+    date: PropTypes.string
+  })
+}
+
 export default function HeaderBlock () {
-  const [notificationMessages, setnotificationMessages] = useState([])
+  const [notificationMessages, setNotificationMessages] = useState([])
   const [visibilityMessagesBox, setDisplayMessagesBox] = useState(true)
-  const [counterMessages, setCounterMessages] = useState(0)
-
-  const displayMessages = () => {
-    const maxMessages = 5
-    const displayedMessages = notificationMessages.slice(Math.max(notificationMessages.length - maxMessages, 0))
-    let messagesOutput = ''
-    if (notificationMessages.length > 0) {
-      messagesOutput = displayedMessages.map((item, index) => (
-        <li key={'id = ' + index}>{item}</li>
-      ))
-      return messagesOutput
-    }
-  }
-
-  const elemMessageBox = (
-    <div className = "header__notification-message-box">
-      <ul className = "header__notification-message-box__list">
-        {displayMessages()}
-      </ul>
-    </div>
-  )
 
   const displayMessagesBox = () => {
     setDisplayMessagesBox(!visibilityMessagesBox)
@@ -36,9 +34,14 @@ export default function HeaderBlock () {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounterMessages(prevCount => prevCount + 1)
-      setnotificationMessages([...notificationMessages, new Date().toLocaleString() + ` - Cообщение ${counterMessages + 1}`])
-    }, 10000)
+      setNotificationMessages([
+        ...notificationMessages, {
+          text: ` - Cообщение ${counterMessages + 1}`,
+          isRead: false,
+          date: new Date().toLocaleString()
+        }
+      ])
+    }, 2000)
     return () => {
       clearInterval(interval)
     }
@@ -46,9 +49,11 @@ export default function HeaderBlock () {
 
   // TODO: resetEvents и button 'Reset Notification' - здесь временно. Потом переедут в MainBlock
   const resetEvents = () => {
-    setCounterMessages(0)
-    setnotificationMessages([])
+    setNotificationMessages([])
   }
+
+  const topMessages = notificationMessages.slice(-MAX_MESSAGES)
+  const counterMessages = notificationMessages.length
 
   return (
     <header className="header">
@@ -60,7 +65,14 @@ export default function HeaderBlock () {
           <span className="header__notification-container-counter">{counterMessages}</span>
           {notificationMessages.length > 0 && <RedLamp/>}
         </button>
-        {!visibilityMessagesBox && elemMessageBox}
+
+        {!visibilityMessagesBox && (
+          <div className = "header__notification-message-box">
+            <ul className = "header__notification-message-box__list">
+              <Messages hello={'Hello'} items={topMessages} />
+            </ul>
+          </div>
+        )}
       </div>
     </header>
   )
