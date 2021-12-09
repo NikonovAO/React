@@ -50,7 +50,7 @@ h1 {
 
 .header__notification-message-box {
     width: 220px;
-    height: 120px;
+    min-height: 120px;
     box-sizing: border-box;
     background: lightgrey;
     position: absolute;

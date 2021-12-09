@@ -41,7 +41,7 @@ export default function HeaderBlock () {
           date: new Date().toLocaleString()
         }
       ])
-    }, 2000)
+    }, 10000)
     return () => {
       clearInterval(interval)
     }

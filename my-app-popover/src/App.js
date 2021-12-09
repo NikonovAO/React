@@ -1,7 +1,7 @@
 import React from 'react'
 
 import FHeaderBlock from './components/HeaderBlock/FHeaderBlock'
-import MainBlock from './components/MainBlock/MainBlock'
+import FMainBlock from './components/MainBlock/FMainBlock'
 
 import Clock from './components/Clock'
 
@@ -11,7 +11,7 @@ function App () {
   return (
     <div className="App">
       <FHeaderBlock />
-      <MainBlock />
+      <FMainBlock />
       <Clock />
     </div>
   )
